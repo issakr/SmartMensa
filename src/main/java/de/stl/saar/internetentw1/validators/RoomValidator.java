@@ -20,7 +20,7 @@ public class RoomValidator implements Validator<Room>{
 	/**
 	 * Methode, die die Korrektheit der Raumnummer nach den enstrechenden Bedingungen valdiert
 	 * Fehlerausgabe im Fehlerfall
-	 * @param Room value : Der zu validierende Raum
+	 * @param value : Der zu validierende Raum
 	 */
 	@Override
 	public void validate(FacesContext context,
