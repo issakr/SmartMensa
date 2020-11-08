@@ -15,10 +15,6 @@ import javax.inject.Named;
 
 import de.stl.saar.internetentw1.entities.Dish;
 import de.stl.saar.internetentw1.services.interfaces.DishService;
-/**
- * Controller für menu.xhtml
- * @author Issam Sakr, David Wagner
- */
 
 @Named
 @ViewScoped

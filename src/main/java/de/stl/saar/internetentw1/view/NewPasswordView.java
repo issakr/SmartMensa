@@ -12,10 +12,6 @@ import javax.inject.Named;
 import de.stl.saar.internetentw1.entities.User;
 import de.stl.saar.internetentw1.services.interfaces.UserService;
 import de.stl.saar.internetentw1.utils.RandomUtils;
-/**
- * Controller für newPass.xhtml
- * @author Issam Sakr, David Wagner
- */
 
 @Named
 

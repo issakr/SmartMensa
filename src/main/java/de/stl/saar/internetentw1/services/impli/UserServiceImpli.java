@@ -11,19 +11,15 @@ import de.stl.saar.internetentw1.entities.User;
 import de.stl.saar.internetentw1.repositories.UserRepository;
 import de.stl.saar.internetentw1.services.interfaces.UserService;
 
-/**
- * Implementierung des UserServices
- * @author Issam Sakr, David Wagner
- */
+
 @Named
 public class UserServiceImpli implements UserService{
 	@Autowired
 	private UserRepository userRepo;
 	
-	private List<User> userList;
 	
 	public UserServiceImpli() {
-		super();
+		
 	}
 
 
@@ -41,10 +37,7 @@ public class UserServiceImpli implements UserService{
 
 	@Override
 	public List<User> getAllUsers() {
-		userList = new ArrayList<User>();
-		userRepo.findAll().forEach(user ->
-				userList.add(user));
-		return userList;
+		return userRepo.findAll();
 	}
 
 	@Override

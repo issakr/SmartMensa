@@ -13,10 +13,6 @@ import javax.inject.Named;
 import de.stl.saar.internetentw1.constants.AppConstants;
 import de.stl.saar.internetentw1.model.Room;
 
-/**
- * Controller für order.xhtml
- * @author Issam Sakr, David Wagner
- */
 
 @Named
 @ViewScoped

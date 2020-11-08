@@ -11,6 +11,9 @@ import de.stl.saar.internetentw1.model.Room;
 @Named
 public class RoomConverter implements Converter<Room>{
 
+	/**
+	 * erzeugt einen Room Objekt aus einem String der Format xxxx .
+	 */
 	@Override
 	public Room getAsObject(FacesContext context,
 							UIComponent component,
@@ -31,6 +34,9 @@ public class RoomConverter implements Converter<Room>{
 		
 	}
 
+	/**
+	 * Konvertiert Raum zu xxxx format
+	 */
 	@Override
 	public String getAsString(FacesContext context,
 							  UIComponent component,

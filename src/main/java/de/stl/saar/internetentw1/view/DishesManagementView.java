@@ -13,10 +13,6 @@ import javax.inject.Named;
 import de.stl.saar.internetentw1.entities.Dish;
 import de.stl.saar.internetentw1.services.interfaces.DishService;
 
-/**
- * Controller für Dishmanagement.xhtml
- * @author Issam Sakr, David Wagner
- */
 
 @Named
 public class DishesManagementView {

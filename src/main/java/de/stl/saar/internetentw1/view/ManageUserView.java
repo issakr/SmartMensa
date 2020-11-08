@@ -17,11 +17,7 @@ import de.stl.saar.internetentw1.entities.*;
 import de.stl.saar.internetentw1.services.interfaces.*;
 import de.stl.saar.internetentw1.utils.RandomUtils;
 
-/**
- * 
- * Controller für ManageUser.xhtml
- * @author Issam Sakr, David Wagner
- */
+
 
 @Named
 public class ManageUserView implements Serializable{

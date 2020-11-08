@@ -6,10 +6,6 @@ import org.springframework.stereotype.Service;
 
 import de.stl.saar.internetentw1.entities.Role;
 
-/**
- *RoleServices Interface
- * @author Issam Sakr, David Wagner
- */
 
 @Service
 public interface RoleService {

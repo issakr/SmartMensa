@@ -12,25 +12,18 @@ import de.stl.saar.internetentw1.repositories.RoleRepository;
 import de.stl.saar.internetentw1.services.interfaces.RoleService;
 import de.stl.saar.internetentw1.utils.StringUtils;
 
-/**
- * Implementierung des RoleServices
- * @author Issam Sakr, David Wagner
- */
+
 @Named
 public class RoleServiceImpli implements RoleService{
 	@Autowired
 	private RoleRepository roleRepo;
 	
-	private List<Role> rolenList;
 	
 	public RoleServiceImpli() {
 	}
 	@Override
 	public List<Role> getAllRolen(){
-		rolenList = new ArrayList<Role>();
-		roleRepo.findAll().forEach(role ->
-			rolenList.add(role));
-		return rolenList;
+		return roleRepo.findAll();
 	}
 	
 	@Override

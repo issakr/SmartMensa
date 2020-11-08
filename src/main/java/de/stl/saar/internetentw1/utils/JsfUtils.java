@@ -8,7 +8,7 @@ import javax.faces.application.Application;
 import javax.faces.context.FacesContext;
 
 /**
- * @author Issam Sakr, David Wagner
+ * @author Issam Sakr
  */
 
 public class JsfUtils {

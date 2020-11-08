@@ -6,10 +6,7 @@ import org.springframework.stereotype.Service;
 
 import de.stl.saar.internetentw1.entities.User;
 
-/**
- *UserServices Interface
- * @author Issam Sakr, David Wagner
- */
+
 @Service
 public interface UserService {
 	boolean saveUser(User user);

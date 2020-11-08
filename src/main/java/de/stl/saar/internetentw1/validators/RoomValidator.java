@@ -10,8 +10,8 @@ import javax.faces.validator.ValidatorException;
 import de.stl.saar.internetentw1.model.Room;
 
 /**
- * validiert den Raum
- * @author Issam Sakr, David Wagner
+ * Selbstdefinierter Velidierer um einen Raum Laut HTW-regeln zu validieren.
+ * @author Issam Sakr
  */
 
 @FacesValidator("roomValidator")

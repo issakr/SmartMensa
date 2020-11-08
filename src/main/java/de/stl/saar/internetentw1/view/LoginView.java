@@ -19,10 +19,10 @@ import de.stl.saar.internetentw1.services.interfaces.UserService;
 import de.stl.saar.internetentw1.utils.DatabaseUtil;
 
 /**
- * Controller für LoginView.xhtml
- * @author Issam Sakr, David Wagner
+ * Diese Bean managed Login Fenster, es prüft die eingabe und erstellt einen globalen User.
+ * @author Lucky Ace
+ *
  */
-
 @Named
 @SessionScoped
 public class LoginView implements Serializable{

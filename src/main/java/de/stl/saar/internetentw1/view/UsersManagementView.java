@@ -14,10 +14,7 @@ import javax.inject.Named;
 import de.stl.saar.internetentw1.entities.User;
 import de.stl.saar.internetentw1.services.interfaces.UserService;
 
-/**
- * Controller für userManagement.xhtml
- * @author Issam Sakr, David Wagner
- */
+
 
 @Named
 public class UsersManagementView {

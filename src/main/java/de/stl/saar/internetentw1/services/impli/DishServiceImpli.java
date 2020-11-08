@@ -11,25 +11,16 @@ import de.stl.saar.internetentw1.entities.Dish;
 import de.stl.saar.internetentw1.repositories.DishRepository;
 import de.stl.saar.internetentw1.services.interfaces.DishService;
 
-/**
- * Implementierung des DishServices
- * @author Issam Sakr, David Wagner
- */
 @Named
 public class DishServiceImpli implements DishService{
 	@Autowired
 	private DishRepository dishRepo;
-	private List<Dish> dishesList;
 	
 	public DishServiceImpli() {
-		super();
 	}
 	@Override
 	public List<Dish> getAllDishes() {
-		dishesList = new ArrayList<Dish>();
-		dishRepo.findAll().forEach(dish ->
-					dishesList.add(dish));
-		return dishesList;
+		return dishRepo.findAll();
 	}
 	@Override
 	public boolean deleteDishById(long dishId) {
