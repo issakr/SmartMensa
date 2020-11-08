@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Benutzer erstellen und aenderen</title>
+</h:head>
+
+<body>
+	<ui:composition template="../../../../WEB-INF/template.xhtml">
+		<ui:define name="pageTitel">
+			<h1>#{labels.labelNewPass}</h1>
+		</ui:define>
+		<ui:define name="links"></ui:define>
+		<ui:define name="content">
+			<h:form>
+				<f:event listener="#{newPasswordView.initialize}" 
+						 type="preRenderView" />
+				
+		
+					<h:panelGrid columns="3">
+						<h:outputText value="#{labels.labelPasswort}" /> 
+						<h:inputText id="txtPasswort"
+									 value="#{newPasswordView.password}" 
+									 validatorMessage="passwort invalid"
+									 requiredMessage="#{msg.msgEmailRequired}" 
+								 	 required="true"/> 	 
+						<h:message for="txtPasswort" errorStyle="color:red;" />
+						
+						<h:outputText value="#{labels.labelPassConfirm}:"/> 
+						<h:inputText id="txtPasswordConfirm"
+									  value="#{newPasswordView.confirm_password}" 
+									  validatorMessage="ConfirmPass invalid"
+									  requiredMessage="Confirmpass required" 
+								 	  required="true"/>									 	  
+						<h:message for="txtPasswordConfirm" errorStyle="color:red;" />
+					</h:panelGrid>
+					<h:commandButton value="Weiter"
+									 action="#{newPasswordView.saveNewPassword()}"/>
+						
+					<h:messages globalOnly="true" errorStyle="color:red;"  />
+			</h:form>
+		</ui:define>
+		<ui:define name="footer"></ui:define>
+	</ui:composition>
+</body>
+</html>

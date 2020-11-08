@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>#{labels.labelUserTitel}</title>
+    <h:outputStylesheet name="template-style.css" library="css" />
+
+</h:head>
+
+<body>
+	<ui:composition template="../../../../WEB-INF/template.xhtml">
+	
+		<ui:define name="pageTitel">
+			<h1>#{labels.labelUserTitel}</h1>
+		</ui:define>
+		
+		
+    	<ui:define name="content">
+		<h:form id="NewUserForm">
+		<f:event listener="#{manageUserView.preRenderViewInit}" 
+						 type="preRenderView" />
+			<h:panelGrid columns="3">
+			<f:validateRequired>
+				<h:outputText value="#{labels.labelUserName}: " /> 
+				<h:inputText id="txtUserName"
+							 value="#{manageUserView.userToShow.userName}"
+							 requiredMessage="#{msg.msgRequiredUserName}"/>
+				<h:message for="txtUserName"/>
+				
+				<h:outputText value="#{labels.labelEmail}: " />
+				<h:inputText id= "txtEmail"
+							value="#{manageUserView.userToShow.emailAddress}"
+							requiredMessage="#{msg.msgEmailRequired}"/>
+				<h:message for="txtEmail"/>
+				
+				
+				<h:outputText value="#{labels.labelRole}: " 
+							  rendered="#{manageUserView.getItemToShow()}"/>
+				<h:selectOneListbox id="rollenList"
+									rendered="#{manageUserView.getItemToShow()}"
+									value="#{manageUserView.selectedRole}"
+									converter="#{roleConverter}"
+									requiredMessage="#{msg.msgRoleRequired}"
+									>
+							<f:selectItems value="#{manageUserView.rolenList}"	/>
+				</h:selectOneListbox>		 
+				<h:message for="rollenList" rendered="#{manageUserView.getItemToShow()}"/>
+			
+				
+				
+				
+				<h:outputText value="#{labels.labelPasswort}:" />
+				<h:inputText id="txtPasswort"
+							 value="#{manageUserView.userToShow.password}"
+							 requiredMessage="#{msg.msgPassRequired}"/>
+				<h:message for="txtPasswort"/>
+			</f:validateRequired>
+				
+				<h:selectBooleanCheckbox 	value="#{manageUserView.userToShow.passwordResetRequired}"
+											rendered="#{manageUserView.getItemToShow()}"/>
+				<h:commandButton value ="#{labels.labelNewPass}"
+								 action="#{manageUserView.toNewPassword()}"
+								 immediate="true"
+								 rendered="#{manageUserView.getItemToShow()}">
+					<f:setPropertyActionListener value="#{manageUserView.userToShow.userName}"
+									target="#{newPasswordView.userNameToModify}" />
+					<f:setPropertyActionListener value="#{manageUserView.createRandomPassword()}"
+									target="#{newPasswordView.newPassword}" />
+				
+				</h:commandButton>					
+				<br/>
+				<br/>			 
+				<h:commandButton value="#{labels.labelSave}"
+								 actionListener="#{manageUserView.saveUser}"
+								 action="startseite"/>
+				
+				<h:commandButton value="#{labels.labelCancel}"
+								 immediate="true" 
+								 action="startseite"/>						 
+			</h:panelGrid>
+		</h:form>
+		</ui:define>
+	</ui:composition>
+</body>
+</html>
