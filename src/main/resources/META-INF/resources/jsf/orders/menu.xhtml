@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+    <h:outputStylesheet name="template-style.css" library="css" />   
+	<title>#{labels.labelMenuTitel}</title>
+</h:head>
+
+<body>
+	<ui:composition template="../../../../WEB-INF/template.xhtml">
+		
+		
+		<ui:define name="content">
+			<h:form enctype="multipart/form-data">
+				<f:event listener="#{menuView.initialize}" 
+						type="preRenderView"/>
+				<p:dataTable var="oneDish"
+								value="#{menuView.myDishes}">
+					<p:column headerText="#{labels.labelNumber}">
+						<h:outputText value="#{oneDish.dishId}"/>
+					</p:column>		
+				
+					<p:column headerText="#{labels.labelName}">
+						<h:outputText value="#{oneDish.dishName}"/>
+					</p:column>
+					
+					<p:column headerText="#{labels.labelPrice}">
+						<h:outputText value="#{oneDish.price}">
+							<f:convertNumber type="currency"
+											 currencySymbol = "€"/>
+						</h:outputText>	
+					</p:column>
+					<p:column>
+						<p:graphicImage url="#{menuView.getImages(oneDish)}"
+										style="width: 90px;border-radius: 50%;"/>
+					</p:column>
+					<p:column>
+						
+						<h:commandButton id="cartButton"
+										 value="#{labels.labelToCart}"
+										 action="#{menuView.addToCart}" >
+							<f:setPropertyActionListener value="#{oneDish}" 
+											target="#{menuView.selectedDish}"/>
+							<f:ajax render="@all"/>
+						</h:commandButton>
+					</p:column>		
+				</p:dataTable>
+				<h:commandButton value="#{labels.labelOrder}"
+								 id="bestellenButton"	 
+								 action="#{menuView.bestellen}"
+								 disabled="#{!menuView.orderReady}">
+		
+				</h:commandButton>
+				<h:commandButton value="#{labels.labelCancel}" 
+								 action="startseite" />
+				
+				<h:messages globalOnly="true"/>
+			</h:form>
+		
+		<ui:insert name="cart" >
+		  <ui:include src="cart.xhtml" />
+		</ui:insert>
+		</ui:define>
+ 	</ui:composition> 		
+		
+		
+</body>
+</html>
