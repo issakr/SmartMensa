@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"de.stl.saar.internetentw1.validators","l":"RoomValidator"}];updateSearchResults();
